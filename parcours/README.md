@@ -33,4 +33,7 @@ Un fichier par parcours. Le parcours 1 (« Arrive in Dubai ») est directement d
 - La **première** proposition de `choices` est la bonne ; elles sont mélangées à l'écran.
 - `ph` peut être omis si la même phrase anglaise a déjà une phonétique ailleurs.
 - **Phonétique** : syllabe accentuée en MAJUSCULES ; `þ` / `ð` pour le « th » (affichés s / z soulignés) ;
-  le « u » de *cup* s'écrit « a » (MATCH), le son de *work* s'écrit « eu » (WEURK).
+  le « u » de *cup* s’écrit « a » (MATCH), le son de *work* s’écrit « eu » (WEURK),
+  le « a » long britannique de *ask*, *after*, *passport* s’écrit « â » (ÂSK), celui de *for*, *four* « ô » (FÔ).
+  Référence : anglais britannique, donc le « r » en fin de syllabe (devant une consonne ou en fin de mot) n’est pas écrit
+  (*car* → KÂ, *work* → WEUK) ; on le garde devant une voyelle (*here is* → HIR iz).
