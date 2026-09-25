@@ -1,0 +1,100 @@
+/* Parcours 8 — Real Estate (B1-B2) : vocabulaire, analyser un bien, faire une offre.
+   Format : voir parcours/README.md */
+(window.EXPATIA = window.EXPATIA || {}).realestate = [
+  {id:'re-words',emoji:'🏙️',kind:'vocab',title:'Le vocabulaire immobilier',desc:'Off-plan, freehold, promoteur, livraison.',
+    intro:'À Dubaï, les étrangers peuvent acheter en pleine propriété (freehold) dans les zones prévues à cet effet. On peut acheter un bien déjà livré (ready) ou sur plan (off-plan), souvent directement auprès d’un promoteur (developer).',
+    words:[
+      ['Property','Bien immobilier','عقار','🏠','PRO-peur-ti'],
+      ['Townhouse','Maison de ville','تاون هاوس','🏘️','TAOUN-haous'],
+      ['Off-plan','Sur plan','على الخارطة','📐','OF-PLANN'],
+      ['Ready property','Bien livré (prêt à habiter)','عقار جاهز','🔑','RÈ-di PRO-peur-ti'],
+      ['Freehold','Pleine propriété','تملك حر','📜','FRI-hold'],
+      ['Leasehold','Bail de longue durée','حق انتفاع طويل الأمد','⏳','LIS-hold'],
+      ['Developer','Promoteur','المطور العقاري','🏗️','di-VÈ-leu-peur'],
+      ['Handover','Remise des clés (livraison)','التسليم','🗝️','HANND-o-veur'],
+      ['Service charges','Charges de copropriété','رسوم الخدمات','🧾','SEUR-vis TCHAR-djiz'],
+      ['Real estate agent','Agent immobilier','وسيط عقاري','🧑‍💼','RIL is-TÉÏT ÉÏ-djeunt']
+    ],
+    dialogue:[
+      {scene:'Au salon de l’immobilier'},
+      {who:'Agent',en:'Are you interested in off-plan or ready properties?',fr:'Vous cherchez un bien sur plan ou un bien livré ?',ar:'هل تهتم بالعقارات على الخارطة أم بالعقارات الجاهزة؟',ph:'ar you INN-treus-tid inn OF-PLANN or RÈ-di PRO-peur-tiz'},
+      {me:true,choices:['Ready properties. I want to rent it out quickly.','Ready properties. I want a table for two.','Ready properties. I want to top up.'],fr:'Un bien livré. Je veux le louer rapidement.',ar:'العقارات الجاهزة. أريد تأجيره بسرعة.',ph:'RÈ-di PRO-peur-tiz. aï OUONT tou RÈNT it AOUT KOUIK-li'},
+      {who:'Agent',en:'Good idea. Do you prefer an apartment or a townhouse?',fr:'Bonne idée. Vous préférez un appartement ou une maison de ville ?',ar:'فكرة جيدة. هل تفضل شقة أم تاون هاوس؟',ph:'goud aï-DI-eu. dou you pri-FEUR ann eu-PART-meunt or eu TAOUN-haous'},
+      {me:true,choices:['An apartment. Is it freehold?','An apartment. Is it on offer?','An apartment. Is it a virus?'],fr:'Un appartement. Est-ce en pleine propriété ?',ar:'شقة. هل هي تملك حر؟',ph:'ann eu-PART-meunt. iz it FRI-hold'},
+      {who:'Agent',en:'Yes, all our properties are freehold.',fr:'Oui, tous nos biens sont en pleine propriété.',ar:'نعم، جميع عقاراتنا تملك حر.',ph:'YÈS, OL AOU-eur PRO-peur-tiz ar FRI-hold'},
+      {me:true,choices:['And what are the service charges?','And what are the working hours?','And what are the symptoms?'],fr:'Et quelles sont les charges ?',ar:'وما هي رسوم الخدمات؟'},
+      {who:'Agent',en:'About fifteen dirhams per square foot per year.',fr:'Environ quinze dirhams le pied carré par an.',ar:'حوالي خمسة عشر درهمًا للقدم المربع سنويًا.',ph:'eu-BAOUT fif-TIN DIR-hamz peur SKOUÈR FOUT peur YIR'}
+    ]},
+  {id:'re-analyse',emoji:'🔍',kind:'phrases',title:'Analyser un bien',desc:'Prix, loyer, rendement, historique, frais.',
+    words:[
+      ['What’s the asking price?','Quel est le prix demandé ?','ما هو السعر المطلوب؟','🏷️','OUOTS ði AS-kinng PRAÏS'],
+      ['What’s the price per square foot?','Quel est le prix au pied carré ?','ما سعر القدم المربع؟','📐','OUOTS ðeu PRAÏS peur SKOUÈR FOUT'],
+      ['What’s the expected rental income?','Quel est le revenu locatif attendu ?','ما هو الدخل الإيجاري المتوقع؟','💵','OUOTS ði iks-PÈK-tid RÈN-teul INN-kam'],
+      ['What’s the rental yield?','Quel est le rendement locatif ?','ما هو العائد الإيجاري؟','📈','OUOTS ðeu RÈN-teul YILD'],
+      ['Is it rented at the moment?','Est-il loué actuellement ?','هل هو مؤجر حاليًا؟','🔑','iz it RÈN-tid at ðeu MO-meunt'],
+      ['How long has it been on the market?','Depuis combien de temps est-il sur le marché ?','منذ متى وهو معروض في السوق؟','⏳','haou LONNG haz it BIN onn ðeu MAR-kit'],
+      ['When was the building completed?','Quand l’immeuble a-t-il été achevé ?','متى اكتمل بناء المبنى؟','🏗️','OUÈN OUOZ ðeu BIL-dinng keum-PLI-tid'],
+      ['Could you give me a breakdown of all the associated costs?','Pourriez-vous me détailler tous les frais associés ?','هل يمكنك أن تعطيني تفصيلًا لجميع التكاليف المرتبطة؟','📊','koud you GUIV mi eu BRÉÏK-daoun ov OL ði eu-SO-chi-éï-tid KOSTS']
+    ],
+    dialogue:[
+      {scene:'Rendez-vous avec l’agent'},
+      {who:'Agent',en:'This two-bedroom apartment is in Jumeirah Village Circle.',fr:'Cet appartement de deux chambres est à Jumeirah Village Circle.',ar:'هذه الشقة ذات غرفتي النوم تقع في قرية جميرا الدائرية.',ph:'ðis TOU-BÈD-roum eu-PART-meunt iz inn djou-MÉÏ-ra VI-lidj SEUR-keul'},
+      {me:true,choices:['What’s the asking price?','What’s the Wi-Fi password?','What’s the next stop?'],fr:'Quel est le prix demandé ?',ar:'ما هو السعر المطلوب؟'},
+      {who:'Agent',en:'One point two million dirhams.',fr:'Un million deux cent mille dirhams.',ar:'مليون ومئتا ألف درهم.',ph:'OUANN POÏNT TOU MIL-yeun DIR-hamz'},
+      {me:true,choices:['Is it rented at the moment?','Is it a virus?','Is it direct?'],fr:'Est-il loué actuellement ?',ar:'هل هو مؤجر حاليًا؟'},
+      {who:'Agent',en:'Yes, for eighty-five thousand a year.',fr:'Oui, pour quatre-vingt-cinq mille par an.',ar:'نعم، بخمسة وثمانين ألفًا سنويًا.',ph:'YÈS, for ÉÏ-ti-FAÏV þAOU-zeund eu YIR'},
+      {me:true,choices:['So the gross yield is about seven percent?','So the flight is about seven hours?','So the rice is in aisle seven?'],fr:'Donc le rendement brut est d’environ sept pour cent ?',ar:'إذن العائد الإجمالي حوالي سبعة بالمئة؟',ph:'SO ðeu GROS YILD iz eu-BAOUT SÈ-veun peur-SÈNT'},
+      {who:'Agent',en:'Exactly. And the service charges are about twelve thousand a year.',fr:'Exactement. Et les charges sont d’environ douze mille par an.',ar:'بالضبط. ورسوم الخدمات حوالي اثني عشر ألفًا سنويًا.',ph:'ig-ZAKT-li. annd ðeu SEUR-vis TCHAR-djiz ar eu-BAOUT TOUÈLV þAOU-zeund eu YIR'},
+      {me:true,choices:['Could you give me a breakdown of all the associated costs?','Could you give me a table by the window?','Could you give me a Nol card?'],fr:'Pourriez-vous me détailler tous les frais associés ?',ar:'هل يمكنك أن تعطيني تفصيلًا لجميع التكاليف المرتبطة؟'},
+      {who:'Agent',en:'Of course. I’ll email you the details.',fr:'Bien sûr. Je vous envoie le détail par email.',ar:'بالتأكيد. سأرسل لك التفاصيل بالبريد الإلكتروني.',ph:'ov KORS. aïl I-méïl you ðeu DI-téïlz'}
+    ]},
+  {id:'re-offer',emoji:'✍️',kind:'phrases',title:'Faire une offre',desc:'Négocier le prix, l’apport, les frais, conclure.',
+    intro:'À Dubaï, l’achat passe par un contrat entre acheteur et vendeur, le versement d’un dépôt, puis l’enregistrement auprès du Dubai Land Department, qui prélève des frais de transfert.',
+    words:[
+      ['I’d like to make an offer.','Je voudrais faire une offre.','أريد تقديم عرض.','✍️','aïd LAÏK tou MÉÏK ann O-feur'],
+      ['Is the price negotiable?','Le prix est-il négociable ?','هل السعر قابل للتفاوض؟','🤝','iz ðeu PRAÏS ni-GO-chi-eu-beul'],
+      ['My budget is one million dirhams.','Mon budget est d’un million de dirhams.','ميزانيتي مليون درهم.','💰','maï BA-djit iz OUANN MIL-yeun DIR-hamz'],
+      ['What is the payment plan?','Quel est l’échéancier de paiement ?','ما هي خطة السداد؟','🗓️','OUOT iz ðeu PÉÏ-meunt PLANN'],
+      ['How much is the down payment?','Quel est le montant de l’apport ?','كم الدفعة الأولى؟','💵','haou MATCH iz ðeu DAOUN PÉÏ-meunt'],
+      ['When is the handover?','Quand a lieu la remise des clés ?','متى موعد التسليم؟','🗝️','OUÈN iz ðeu HANND-o-veur'],
+      ['Who pays the transfer fees?','Qui paie les frais de transfert ?','من يدفع رسوم نقل الملكية؟','🧾','HOU PÉÏZ ðeu TRANNS-feur FIZ'],
+      ['We have a deal.','Marché conclu.','اتفقنا.','🤝','oui HAV eu DIL']
+    ],
+    dialogue:[
+      {scene:'La négociation'},
+      {who:'Agent',en:'The seller is asking one point two million.',fr:'Le vendeur demande un million deux cent mille.',ar:'البائع يطلب مليونًا ومئتي ألف.',ph:'ðeu SÈ-leur iz AS-kinng OUANN POÏNT TOU MIL-yeun'},
+      {me:true,choices:['Is the price negotiable?','Is the metro direct?','Is breakfast included?'],fr:'Le prix est-il négociable ?',ar:'هل السعر قابل للتفاوض؟'},
+      {who:'Agent',en:'A little. What is your budget?',fr:'Un peu. Quel est votre budget ?',ar:'قليلًا. ما هي ميزانيتك؟',ph:'eu LI-teul. OUOT iz yor BA-djit'},
+      {me:true,choices:['I’d like to make an offer of one point one million.','I’d like to make a reservation for two.','I’d like to make a transfer abroad.'],fr:'Je voudrais faire une offre d’un million cent mille.',ar:'أريد تقديم عرض بمليون ومئة ألف.',ph:'aïd LAÏK tou MÉÏK ann O-feur ov OUANN POÏNT OUANN MIL-yeun'},
+      {who:'Agent',en:'I’ll call the seller. … He accepts one point one five.',fr:'J’appelle le vendeur. … Il accepte un million cent cinquante mille.',ar:'سأتصل بالبائع. … يقبل بمليون ومئة وخمسين ألفًا.',ph:'aïl KOL ðeu SÈ-leur. hi ak-SÈPTS OUANN POÏNT OUANN FAÏV'},
+      {me:true,choices:['Who pays the transfer fees?','Who pays the waiter?','Who pays the taxi driver?'],fr:'Qui paie les frais de transfert ?',ar:'من يدفع رسوم نقل الملكية؟'},
+      {who:'Agent',en:'Usually the buyer.',fr:'En général, l’acheteur.',ar:'عادةً المشتري.',ph:'YOU-jou-eu-li ðeu BAÏ-eur'},
+      {me:true,choices:['OK. We have a deal.','OK. We have a water leak.','OK. We have a fever.'],fr:'D’accord. Marché conclu.',ar:'حسنًا. اتفقنا.',ph:'o-KÉÏ. oui HAV eu DIL'},
+      {who:'Agent',en:'Congratulations! I’ll prepare the contract.',fr:'Félicitations ! Je prépare le contrat.',ar:'مبروك! سأجهز العقد.',ph:'keun-gra-tchou-LÉÏ-cheunz ! aïl pri-PÈR ðeu KONN-trakt'}
+    ]},
+  {id:'re-mission',emoji:'🎯',kind:'mission',title:'Mission 08 — Buy an investment property',desc:'Rencontrer un agent, analyser, négocier.',
+    brief:'Vous voulez investir dans un appartement destiné à la location. Rencontrez un agent immobilier, analysez le bien qu’il vous propose, puis négociez le prix.',
+    objectives:['Expliquer votre projet et votre budget','Demander le loyer et depuis quand le bien est en vente','Demander le détail des frais','Faire une offre et conclure'],
+    dialogue:[
+      {scene:'1 · Votre projet'},
+      {who:'Agent',en:'Welcome. Are you buying to live or to invest?',fr:'Bienvenue. Vous achetez pour habiter ou pour investir ?',ar:'أهلًا بك. هل تشتري للسكن أم للاستثمار؟',ph:'OUÈL-keum. ar you BAÏ-inng tou LIV or tou inn-VÈST'},
+      {me:true,choices:['To invest. I’m looking for an investment property.','To invest. I’m looking for the rice.','To invest. I’m looking for my passport.'],fr:'Pour investir. Je cherche un bien d’investissement.',ar:'للاستثمار. أبحث عن عقار استثماري.',ph:'tou inn-VÈST. aïm LOU-kinng for ann inn-VÈST-meunt PRO-peur-ti'},
+      {who:'Agent',en:'What is your budget?',fr:'Quel est votre budget ?',ar:'ما هي ميزانيتك؟',ph:'OUOT iz yor BA-djit'},
+      {me:true,choices:['My budget is one million dirhams.','My budget is on the twelfth floor.','My budget is a virus.'],fr:'Mon budget est d’un million de dirhams.',ar:'ميزانيتي مليون درهم.'},
+      {who:'Agent',en:'I have a one-bedroom in Dubai Marina at nine hundred and fifty thousand.',fr:'J’ai un appartement d’une chambre à Dubai Marina à neuf cent cinquante mille.',ar:'لدي شقة بغرفة نوم واحدة في دبي مارينا بتسعمئة وخمسين ألفًا.',ph:'aï HAV eu OUANN-BÈD-roum inn dou-BAÏ ma-RI-na at NAÏN HAN-dreud annd FIF-ti þAOU-zeund'},
+      {scene:'2 · L’analyse'},
+      {me:true,choices:['What’s the expected rental income?','What’s the Wi-Fi password?','What’s the next stop?'],fr:'Quel est le revenu locatif attendu ?',ar:'ما هو الدخل الإيجاري المتوقع؟'},
+      {who:'Agent',en:'About seventy thousand a year. It’s rented until March.',fr:'Environ soixante-dix mille par an. Il est loué jusqu’en mars.',ar:'حوالي سبعين ألفًا سنويًا. إنه مؤجر حتى مارس.',ph:'eu-BAOUT SÈ-veun-ti þAOU-zeund eu YIR. its RÈN-tid ann-TIL MARTCH'},
+      {me:true,choices:['How long has it been on the market?','How long does it take to the airport?','How long is the flight?'],fr:'Depuis combien de temps est-il sur le marché ?',ar:'منذ متى وهو معروض في السوق؟'},
+      {who:'Agent',en:'Three months.',fr:'Trois mois.',ar:'ثلاثة أشهر.',ph:'þRI MANþS'},
+      {me:true,choices:['Could you give me a breakdown of all the associated costs?','Could you give me a table by the window?','Could you give me a Nol card?'],fr:'Pourriez-vous me détailler tous les frais associés ?',ar:'هل يمكنك أن تعطيني تفصيلًا لجميع التكاليف المرتبطة؟'},
+      {who:'Agent',en:'Service charges, the transfer fee and my commission. I’ll send you everything.',fr:'Les charges, les frais de transfert et ma commission. Je vous envoie tout.',ar:'رسوم الخدمات، ورسوم نقل الملكية، وعمولتي. سأرسل لك كل شيء.',ph:'SEUR-vis TCHAR-djiz, ðeu TRANNS-feur FI annd maï keu-MI-cheun. aïl SÈND you ÈV-ri-þinng'},
+      {scene:'3 · L’offre'},
+      {me:true,choices:['It’s been three months. Is the price negotiable?','It’s been three months. Is breakfast included?','It’s been three months. Is it a virus?'],fr:'Cela fait trois mois. Le prix est-il négociable ?',ar:'مرّت ثلاثة أشهر. هل السعر قابل للتفاوض؟',ph:'its BIN þRI MANþS. iz ðeu PRAÏS ni-GO-chi-eu-beul'},
+      {who:'Agent',en:'Make me an offer.',fr:'Faites-moi une offre.',ar:'قدّم لي عرضًا.',ph:'MÉÏK mi ann O-feur'},
+      {me:true,choices:['I’d like to make an offer of nine hundred thousand.','I’d like to make a table for nine.','I’d like to make a strange noise.'],fr:'Je voudrais faire une offre à neuf cent mille.',ar:'أريد تقديم عرض بتسعمئة ألف.',ph:'aïd LAÏK tou MÉÏK ann O-feur ov NAÏN HAN-dreud þAOU-zeund'},
+      {who:'Agent',en:'The seller accepts nine hundred and twenty thousand.',fr:'Le vendeur accepte neuf cent vingt mille.',ar:'البائع يقبل بتسعمئة وعشرين ألفًا.',ph:'ðeu SÈ-leur ak-SÈPTS NAÏN HAN-dreud annd TOUÈN-ti þAOU-zeund'},
+      {me:true,choices:['OK. We have a deal.','OK. We have a water leak.','OK. We have a fever.'],fr:'D’accord. Marché conclu.',ar:'حسنًا. اتفقنا.'},
+      {who:'Agent',en:'Congratulations! I’ll prepare the contract.',fr:'Félicitations ! Je prépare le contrat.',ar:'مبروك! سأجهز العقد.'}
+    ]}
+];

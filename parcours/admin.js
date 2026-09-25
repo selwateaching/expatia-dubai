@@ -1,0 +1,123 @@
+/* Parcours 5 — Health & Administration (A2-B1) : banque, santé, documents, urgences.
+   Format : voir parcours/README.md */
+(window.EXPATIA = window.EXPATIA || {}).admin = [
+  {id:'adm-bank',emoji:'🏦',kind:'phrases',title:'Ouvrir un compte bancaire',desc:'Type de compte, documents, frais, virements.',
+    intro:'Pour ouvrir un compte à Dubaï, la banque demande en général votre passeport, votre visa de résidence, votre Emirates ID et souvent une attestation de salaire de votre employeur (salary certificate).',
+    words:[
+      ['I’d like to open a bank account.','Je voudrais ouvrir un compte bancaire.','أريد فتح حساب مصرفي.','🏦','aïd LAÏK tou O-peun eu BANNK eu-KAOUNT'],
+      ['Current account','Compte courant','حساب جارٍ','💳','KA-reunt eu-KAOUNT'],
+      ['Savings account','Compte épargne','حساب توفير','🐖','SÉÏ-vinngz eu-KAOUNT'],
+      ['What documents do you need?','De quels documents avez-vous besoin ?','ما المستندات التي تحتاجونها؟','📄','OUOT DO-kiou-meunts dou you NID'],
+      ['Is there a minimum balance?','Y a-t-il un solde minimum ?','هل يوجد حد أدنى للرصيد؟','⚖️','iz ðèr eu MI-ni-meum BA-leuns'],
+      ['Are there any monthly fees?','Y a-t-il des frais mensuels ?','هل توجد رسوم شهرية؟','💸','ar ðèr È-ni MANþ-li FIZ'],
+      ['I’d like to make a transfer abroad.','Je voudrais faire un virement à l’étranger.','أريد إجراء تحويل إلى الخارج.','🌍','aïd LAÏK tou MÉÏK eu TRANNS-feur eu-BROD'],
+      ['My card is blocked.','Ma carte est bloquée.','بطاقتي موقوفة.','🔒','maï KARD iz BLOKT']
+    ],
+    dialogue:[
+      {scene:'À la banque'},
+      {who:'Adviser',en:'Good morning. How can I help you today?',fr:'Bonjour. Que puis-je faire pour vous aujourd’hui ?',ar:'صباح الخير. كيف يمكنني مساعدتك اليوم؟',ph:'goud MOR-ninng. haou kann aï HÈLP you teu-DÉÏ'},
+      {me:true,choices:['I’d like to open a bank account.','I’d like to book a table for two.','I’d like to top up my Nol card.'],fr:'Je voudrais ouvrir un compte bancaire.',ar:'أريد فتح حساب مصرفي.'},
+      {who:'Adviser',en:'Of course. A current account or a savings account?',fr:'Bien sûr. Un compte courant ou un compte épargne ?',ar:'بالتأكيد. حساب جارٍ أم حساب توفير؟',ph:'ov KORS. eu KA-reunt eu-KAOUNT or eu SÉÏ-vinngz eu-KAOUNT'},
+      {me:true,choices:['A current account, please.','A car wash, please.','A late check-out, please.'],fr:'Un compte courant, s’il vous plaît.',ar:'حساب جارٍ من فضلك.',ph:'eu KA-reunt eu-KAOUNT, PLIZ'},
+      {who:'Adviser',en:'Very good. I just need a few documents.',fr:'Très bien. J’ai juste besoin de quelques documents.',ar:'جيد جدًا. أحتاج فقط إلى بعض المستندات.',ph:'VÈ-ri GOUD. aï DJAST NID eu FIOU DO-kiou-meunts'},
+      {me:true,choices:['What documents do you need?','What do you recommend for dessert?','What time is check-out?'],fr:'De quels documents avez-vous besoin ?',ar:'ما المستندات التي تحتاجونها؟'},
+      {who:'Adviser',en:'Your passport, your Emirates ID and a salary certificate.',fr:'Votre passeport, votre Emirates ID et une attestation de salaire.',ar:'جواز سفرك، وبطاقة الهوية الإماراتية، وشهادة راتب.',ph:'yor PASS-port, yor È-mi-reuts aï-DI annd eu SA-leu-ri seur-TI-fi-keut'},
+      {me:true,choices:['Is there a minimum balance?','Is there a swimming pool?','Is there a car wash?'],fr:'Y a-t-il un solde minimum ?',ar:'هل يوجد حد أدنى للرصيد؟'},
+      {who:'Adviser',en:'Yes, three thousand dirhams. Otherwise there is a monthly fee.',fr:'Oui, trois mille dirhams. Sinon, il y a des frais mensuels.',ar:'نعم، ثلاثة آلاف درهم. وإلا توجد رسوم شهرية.',ph:'YÈS, þRI þAOU-zeund DIR-hamz. A-ðeur-ouaïz ðèr iz eu MANþ-li FI'},
+      {me:true,choices:['I see. Can I also make transfers abroad?','I see. Can I also see the kitchen?','I see. Can I also have a late check-out?'],fr:'Je vois. Puis-je aussi faire des virements à l’étranger ?',ar:'فهمت. هل يمكنني أيضًا إجراء تحويلات إلى الخارج؟',ph:'aï SI. kann aï OL-so MÉÏK TRANNS-feurz eu-BROD'},
+      {who:'Adviser',en:'Yes, from the mobile app.',fr:'Oui, depuis l’application mobile.',ar:'نعم، من خلال تطبيق الهاتف.',ph:'YÈS, from ðeu MO-baïl AP'}
+    ]},
+  {id:'adm-health',emoji:'🩺',kind:'mixed',title:'Chez le médecin',desc:'Prendre rendez-vous, décrire vos symptômes, comprendre l’ordonnance.',
+    words:[
+      ['Doctor','Médecin','طبيب','👨‍⚕️','DOK-teur'],
+      ['Prescription','Ordonnance','وصفة طبية','📝','pri-SKRIP-cheun'],
+      ['Health insurance card','Carte d’assurance santé','بطاقة التأمين الصحي','💳','HÈLþ inn-CHO-reuns KARD'],
+      ['I’d like to see a doctor.','Je voudrais voir un médecin.','أريد رؤية طبيب.','🩺','aïd LAÏK tou SI eu DOK-teur'],
+      ['I have a headache.','J’ai mal à la tête.','لدي صداع.','🤕','aï HAV eu HÈD-éïk'],
+      ['I have a fever.','J’ai de la fièvre.','لدي حمى.','🌡️','aï HAV eu FI-veur'],
+      ['I’ve had a cough for three days.','Je tousse depuis trois jours.','أسعل منذ ثلاثة أيام.','😷','aïv HAD eu KOF for þRI DÉÏZ'],
+      ['How many times a day?','Combien de fois par jour ?','كم مرة في اليوم؟','💊','haou MÈ-ni TAÏMZ eu DÉÏ']
+    ],
+    dialogue:[
+      {scene:'À l’accueil de la clinique'},
+      {who:'Receptionist',en:'Hello. Do you have an appointment?',fr:'Bonjour. Avez-vous rendez-vous ?',ar:'مرحبًا. هل لديك موعد؟',ph:'hè-LO. dou you HAV ann eu-POÏNT-meunt'},
+      {me:true,choices:['No, but I’d like to see a doctor today.','No, but I’d like a table for two.','No, but I’d like to change 500 euros.'],fr:'Non, mais je voudrais voir un médecin aujourd’hui.',ar:'لا، لكني أريد رؤية طبيب اليوم.',ph:'NO, bat aïd LAÏK tou SI eu DOK-teur teu-DÉÏ'},
+      {who:'Receptionist',en:'Can I have your health insurance card?',fr:'Puis-je avoir votre carte d’assurance santé ?',ar:'هل يمكنني الحصول على بطاقة التأمين الصحي؟',ph:'kann aï HAV yor HÈLþ inn-CHO-reuns KARD'},
+      {me:true,choices:['Yes, here it is.','No, it’s a taxi.','Keep the change.'],fr:'Oui, la voici.',ar:'نعم، تفضل.'},
+      {scene:'Avec le médecin'},
+      {who:'Doctor',en:'What seems to be the problem?',fr:'Qu’est-ce qui ne va pas ?',ar:'ما المشكلة؟',ph:'OUOT SIMZ tou bi ðeu PRO-bleum'},
+      {me:true,choices:['I have a fever and a headache.','I have a reservation for two.','I have a work visa.'],fr:'J’ai de la fièvre et mal à la tête.',ar:'لدي حمى وصداع.',ph:'aï HAV eu FI-veur annd eu HÈD-éïk'},
+      {who:'Doctor',en:'Since when?',fr:'Depuis quand ?',ar:'منذ متى؟',ph:'SINNS OUÈN'},
+      {me:true,choices:['For three days.','For three bedrooms.','For three dirhams.'],fr:'Depuis trois jours.',ar:'منذ ثلاثة أيام.',ph:'for þRI DÉÏZ'},
+      {who:'Doctor',en:'It’s a virus. Here is a prescription.',fr:'C’est un virus. Voici une ordonnance.',ar:'إنه فيروس. هذه وصفة طبية.',ph:'its eu VAÏ-reus. HIR iz eu pri-SKRIP-cheun'},
+      {me:true,choices:['Thank you. How many times a day?','Thank you. How many cheques?','Thank you. How much is the rent?'],fr:'Merci. Combien de fois par jour ?',ar:'شكرًا. كم مرة في اليوم؟',ph:'þANK you. haou MÈ-ni TAÏMZ eu DÉÏ'},
+      {who:'Doctor',en:'Twice a day, after meals.',fr:'Deux fois par jour, après les repas.',ar:'مرتين في اليوم، بعد الوجبات.',ph:'TOUAÏS eu DÉÏ, AF-teur MILZ'}
+    ]},
+  {id:'adm-docs',emoji:'📄',kind:'vocab',title:'Documents officiels',desc:'Visa de résidence, Emirates ID, formulaires.',
+    intro:'Pour vivre à Dubaï, il faut un visa de résidence et une carte d’identité émiratie (Emirates ID). La démarche passe par une visite médicale et une prise d’empreintes.',
+    words:[
+      ['Residence visa','Visa de résidence','تأشيرة الإقامة','🪪','RÈ-zi-deuns VI-za'],
+      ['Emirates ID','Carte d’identité émiratie','الهوية الإماراتية','🆔','È-mi-reuts aï-DI'],
+      ['Medical test','Visite médicale','الفحص الطبي','🩻','MÈ-di-keul TÈST'],
+      ['Application form','Formulaire de demande','استمارة الطلب','📝','a-pli-KÉÏ-cheun FORM'],
+      ['Signature','Signature','توقيع','✍️','SIG-neu-tcheur'],
+      ['Copy','Copie','نسخة','📑','KO-pi'],
+      ['Expiry date','Date d’expiration','تاريخ الانتهاء','📆','iks-PAÏ-eu-ri DÉÏT'],
+      ['Appointment','Rendez-vous','موعد','📅','eu-POÏNT-meunt'],
+      ['Fingerprints','Empreintes digitales','بصمات الأصابع','🖐️','FINN-gueur-prints']
+    ],
+    dialogue:[
+      {scene:'Au centre de services'},
+      {who:'Officer',en:'Good morning. What service do you need?',fr:'Bonjour. De quel service avez-vous besoin ?',ar:'صباح الخير. ما الخدمة التي تحتاجها؟',ph:'goud MOR-ninng. OUOT SEUR-vis dou you NID'},
+      {me:true,choices:['I need to renew my Emirates ID.','I need to fill it up.','I need a table for two.'],fr:'Je dois renouveler mon Emirates ID.',ar:'أحتاج إلى تجديد هويتي الإماراتية.',ph:'aï NID tou ri-NIOU maï È-mi-reuts aï-DI'},
+      {who:'Officer',en:'Did you fill in the application form?',fr:'Avez-vous rempli le formulaire de demande ?',ar:'هل ملأت استمارة الطلب؟',ph:'did you FIL inn ði a-pli-KÉÏ-cheun FORM'},
+      {me:true,choices:['Yes, and here is a copy of my passport.','Yes, and here is the menu.','Yes, and here is the car wash.'],fr:'Oui, et voici une copie de mon passeport.',ar:'نعم، وهذه نسخة من جواز سفري.',ph:'YÈS, annd HIR iz eu KO-pi ov maï PASS-port'},
+      {who:'Officer',en:'Please sign here.',fr:'Signez ici, s’il vous plaît.',ar:'وقّع هنا من فضلك.',ph:'PLIZ SAÏN HIR'},
+      {me:true,choices:['Of course. When will it be ready?','Of course. When is breakfast?','Of course. When is the flight?'],fr:'Bien sûr. Quand sera-t-elle prête ?',ar:'بالتأكيد. متى ستكون جاهزة؟',ph:'ov KORS. OUÈN ouil it bi RÈ-di'},
+      {who:'Officer',en:'In about five working days.',fr:'Dans environ cinq jours ouvrés.',ar:'خلال خمسة أيام عمل تقريبًا.',ph:'inn eu-BAOUT FAÏV WEUR-kinng DÉÏZ'},
+      {me:true,choices:['Thank you very much.','You’re welcome.','Nice to meet you too.'],fr:'Merci beaucoup.',ar:'شكرًا جزيلًا.'}
+    ]},
+  {id:'adm-emergency',emoji:'🚨',kind:'phrases',title:'Urgences (Emergency English)',desc:'Accident, blessé, vol, perte de passeport.',
+    intro:'Numéros d’urgence aux Émirats : police 999, ambulance 998, pompiers 997. Enregistrez-les dans votre téléphone.',
+    words:[
+      ['Help!','Au secours !','النجدة!','🆘','HÈLP'],
+      ['Call an ambulance!','Appelez une ambulance !','اتصل بالإسعاف!','🚑','KOL ann AMM-biou-leuns'],
+      ['Call the police!','Appelez la police !','اتصل بالشرطة!','🚓','KOL ðeu peu-LIS'],
+      ['There’s been an accident.','Il y a eu un accident.','وقع حادث.','💥','ðèrz BIN ann AK-si-deunt'],
+      ['Someone is injured.','Quelqu’un est blessé.','هناك شخص مصاب.','🩹','SAM-ouann iz INN-djeurd'],
+      ['I’ve lost my passport.','J’ai perdu mon passeport.','فقدت جواز سفري.','🛂','aïv LOST maï PASS-port'],
+      ['My wallet was stolen.','On m’a volé mon portefeuille.','سُرقت محفظتي.','👛','maï OUO-lit OUOZ STO-leun'],
+      ['I need a doctor, it’s an emergency.','J’ai besoin d’un médecin, c’est une urgence.','أحتاج إلى طبيب، إنها حالة طارئة.','🏥','aï NID eu DOK-teur, its ann i-MEUR-djeun-si']
+    ],
+    dialogue:[
+      {scene:'Appel au 999'},
+      {who:'Operator',en:'Police, what is your emergency?',fr:'Police, quelle est votre urgence ?',ar:'الشرطة، ما حالتك الطارئة؟',ph:'peu-LIS, OUOT iz yor i-MEUR-djeun-si'},
+      {me:true,choices:['There’s been an accident on Sheikh Zayed Road.','There’s been a problem with the Wi-Fi.','There’s a table for two.'],fr:'Il y a eu un accident sur Sheikh Zayed Road.',ar:'وقع حادث على شارع الشيخ زايد.',ph:'ðèrz BIN ann AK-si-deunt onn CHÉÏK ZA-yèd ROD'},
+      {who:'Operator',en:'Is anyone injured?',fr:'Y a-t-il des blessés ?',ar:'هل هناك مصابون؟',ph:'iz È-ni-ouann INN-djeurd'},
+      {me:true,choices:['Yes, someone is injured. Call an ambulance!','Yes, someone is on holiday.','Yes, someone is looking for an apartment.'],fr:'Oui, quelqu’un est blessé. Appelez une ambulance !',ar:'نعم، هناك شخص مصاب. اتصل بالإسعاف!',ph:'YÈS, SAM-ouann iz INN-djeurd. KOL ann AMM-biou-leuns'},
+      {who:'Operator',en:'An ambulance is on its way. Where exactly are you?',fr:'Une ambulance arrive. Où êtes-vous exactement ?',ar:'سيارة الإسعاف في الطريق. أين أنت بالضبط؟',ph:'ann AMM-biou-leuns iz onn its OUÉÏ. OUÈR ig-ZAKT-li ar you'},
+      {me:true,choices:['Near the Mall of the Emirates metro station.','Near my passport, please.','Near the menu, please.'],fr:'Près de la station de métro Mall of the Emirates.',ar:'بالقرب من محطة مترو مول الإمارات.',ph:'NIR ðeu MOL ov ði È-mi-reuts MÈ-tro STÉÏ-cheun'},
+      {who:'Operator',en:'Stay there. Help is coming.',fr:'Restez sur place. Les secours arrivent.',ar:'ابقَ هناك. المساعدة في الطريق.',ph:'STÉÏ ðèr. HÈLP iz KA-minng'},
+      {me:true,choices:['Thank you. Please hurry!','Thank you. Keep the change!','Thank you. Enjoy your stay!'],fr:'Merci. Faites vite, s’il vous plaît !',ar:'شكرًا. أسرعوا من فضلكم!',ph:'þANK you. PLIZ HA-ri'}
+    ]},
+  {id:'adm-mission',emoji:'🎯',kind:'mission',title:'Mission 05 — Open a bank account',desc:'Ouvrir un compte et organiser vos virements.',
+    brief:'Vous venez de recevoir votre visa de résidence. Votre employeur versera votre salaire la semaine prochaine : ouvrez un compte bancaire et renseignez-vous sur les frais et les virements vers votre pays.',
+    objectives:['Expliquer ce que vous voulez à l’accueil','Fournir les bons documents','Poser des questions sur les frais','Organiser un virement mensuel vers votre pays'],
+    dialogue:[
+      {scene:'1 · À l’accueil'},
+      {who:'Receptionist',en:'Welcome to Gulf Star Bank. Do you have an appointment?',fr:'Bienvenue à la Gulf Star Bank. Avez-vous rendez-vous ?',ar:'أهلًا بك في بنك غلف ستار. هل لديك موعد؟',ph:'OUÈL-keum tou GALF STAR BANNK. dou you HAV ann eu-POÏNT-meunt'},
+      {me:true,choices:['No. I’d like to open a bank account.','No. I’d like to see a doctor.','No. I’d like the grilled chicken.'],fr:'Non. Je voudrais ouvrir un compte bancaire.',ar:'لا. أريد فتح حساب مصرفي.',ph:'NO. aïd LAÏK tou O-peun eu BANNK eu-KAOUNT'},
+      {who:'Receptionist',en:'Please take a seat. An adviser will see you.',fr:'Asseyez-vous, s’il vous plaît. Un conseiller va vous recevoir.',ar:'تفضل بالجلوس. سيستقبلك أحد المستشارين.',ph:'PLIZ TÉÏK eu SIT. ann ad-VAÏ-zeur ouil SI you'},
+      {me:true,choices:['Thank you!','You’re welcome!','Nice to meet you too!'],fr:'Merci !',ar:'شكرًا!'},
+      {scene:'2 · Avec le conseiller'},
+      {who:'Adviser',en:'So, you’d like a current account?',fr:'Donc, vous voulez un compte courant ?',ar:'إذن، تريد حسابًا جاريًا؟',ph:'SO, youd LAÏK eu KA-reunt eu-KAOUNT'},
+      {me:true,choices:['Yes. What documents do you need?','Yes. What time is check-out?','Yes. Which line goes to the Mall?'],fr:'Oui. De quels documents avez-vous besoin ?',ar:'نعم. ما المستندات التي تحتاجونها؟',ph:'YÈS. OUOT DO-kiou-meunts dou you NID'},
+      {who:'Adviser',en:'Your passport, Emirates ID and residence visa.',fr:'Votre passeport, votre Emirates ID et votre visa de résidence.',ar:'جواز سفرك، والهوية الإماراتية، وتأشيرة الإقامة.',ph:'yor PASS-port, È-mi-reuts aï-DI annd RÈ-zi-deuns VI-za'},
+      {me:true,choices:['Here they are. Are there any monthly fees?','Here they are. Are bills included?','Here they are. Is breakfast included?'],fr:'Les voici. Y a-t-il des frais mensuels ?',ar:'تفضل. هل توجد رسوم شهرية؟',ph:'HIR ðéï AR. ar ðèr È-ni MANþ-li FIZ'},
+      {who:'Adviser',en:'Only if your balance is under three thousand dirhams.',fr:'Seulement si votre solde est inférieur à trois mille dirhams.',ar:'فقط إذا كان رصيدك أقل من ثلاثة آلاف درهم.',ph:'ONN-li if yor BA-leuns iz ANN-deur þRI þAOU-zeund DIR-hamz'},
+      {me:true,choices:['OK. I’d like to make a transfer abroad every month.','OK. I’d like to book a table every month.','OK. I’d like to fill it up every month.'],fr:'D’accord. Je voudrais faire un virement à l’étranger chaque mois.',ar:'حسنًا. أريد إجراء تحويل إلى الخارج كل شهر.',ph:'o-KÉÏ. aïd LAÏK tou MÉÏK eu TRANNS-feur eu-BROD ÈV-ri MANþ'},
+      {who:'Adviser',en:'No problem. You can do it in the app.',fr:'Pas de problème. Vous pouvez le faire dans l’application.',ar:'لا مشكلة. يمكنك القيام بذلك عبر التطبيق.',ph:'NO PRO-bleum. you kann DOU it inn ði AP'},
+      {me:true,choices:['Perfect. How much is the transfer fee?','Perfect. How much is the rent?','Perfect. How much is the menu?'],fr:'Parfait. Combien coûtent les frais de virement ?',ar:'ممتاز. كم رسوم التحويل؟',ph:'PEUR-fikt. haou MATCH iz ðeu TRANNS-feur FI'},
+      {who:'Adviser',en:'Twenty-five dirhams per transfer.',fr:'Vingt-cinq dirhams par virement.',ar:'خمسة وعشرون درهمًا لكل تحويل.',ph:'touèn-ti-FAÏV DIR-hamz peur TRANNS-feur'}
+    ]}
+];

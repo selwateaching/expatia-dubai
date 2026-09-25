@@ -4,6 +4,7 @@ Aucune dépendance. Render fournit le port dans la variable PORT.
 Inutile si le site est déployé en « Static Site ».
 """
 import os
+import re
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
@@ -12,9 +13,12 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 
 class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
-        # Ne sert que la page, jamais les fichiers Python.
-        if self.path.split("?")[0] in ("/", "/index.html"):
+        # Ne sert que la page et le contenu des parcours, jamais les fichiers Python.
+        path = self.path.split("?")[0]
+        if path in ("/", "/index.html"):
             self.path = "/index.html"
+            return super().do_GET()
+        if re.fullmatch(r"/parcours/[a-z]+\.js", path):
             return super().do_GET()
         if self.path == "/healthz":
             self.send_response(200)

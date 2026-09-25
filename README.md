@@ -8,21 +8,25 @@ Nom de travail provisoire, à remplacer quand l'identité sera choisie.
 
 ## Contenu actuel
 
-Parcours 1 — **Arrive in Dubai** (A1), 8 étapes :
+10 parcours, du A1 au B2 : 46 étapes (leçons + une mission par parcours), environ 300 mots et expressions,
+chacun en anglais, français et arabe, avec phonétique et audio.
 
-| # | Étape | Type |
-|---|---|---|
-| 1 | À l'aéroport | vocabulaire |
-| 2 | Passer le contrôle des passeports | expressions + dialogue |
-| 3 | Prendre un taxi | expressions + dialogue |
-| 4 | Carte SIM et Internet | mots, expressions + dialogue |
-| 5 | Changer de l'argent | mots, expressions + dialogue |
-| 6 | Comprendre les panneaux | vocabulaire + dialogue |
-| 7 | Se présenter | expressions + dialogue |
-| 🎯 | Mission 01 — Arrive in Dubai | mission (4 scènes enchaînées) |
+| # | Parcours | Niveau | Étapes |
+|---|---|---|---|
+| 1 | Arrive in Dubai | A1 | 7 leçons + Mission 01 |
+| 2 | Live in Dubai | A1-A2 | 4 leçons + Mission 02 |
+| 3 | Move Around Dubai | A1-A2 | 3 leçons + Mission 03 |
+| 4 | Everyday Life | A1-A2 | 3 leçons + Mission 04 |
+| 5 | Health & Administration | A2-B1 | 4 leçons + Mission 05 |
+| 6 | Work in Dubai | A2-B1 | 3 leçons + Mission 06 |
+| 7 | Start a Business | B1-B2 | 3 leçons + Mission 07 |
+| 8 | Real Estate | B1-B2 | 3 leçons + Mission 08 |
+| 9 | Investment English | B1-B2 | 3 leçons + Mission 09 |
+| 10 | Professional & Social English | B1-B2 | 3 leçons + Mission 10 |
 
-Les 9 autres parcours et les modules transversaux (Phone Calls, Appointments,
-Ask the Price, accents, urgences) sont affichés « Bientôt ».
+Le parcours 1 est dans `index.html` ; les parcours 2 à 10 sont dans `parcours/` (un fichier chacun,
+format décrit dans `parcours/README.md`). Les modules transversaux (Phone Calls, Appointments,
+Ask the Price, Emergency English) renvoient vers les leçons correspondantes.
 
 ## Fonctionnement
 
@@ -40,14 +44,12 @@ Ask the Price, accents, urgences) sont affichés « Bientôt ».
 - Progression en pourcentage de réponses justes du premier coup
   (« Maîtrisé » à partir de 80 %), enregistrée dans le navigateur (`localStorage`).
 
-Tout est dans un seul fichier, `index.html`, sans serveur ni clé API.
+Aucun serveur ni clé API : `index.html` et les fichiers de `parcours/` suffisent.
 
-## Ajouter une leçon
+## Ajouter ou corriger une leçon
 
-Dans `index.html`, tableau `PATHS` : chaque leçon a une liste `words`
-(`[anglais, français, arabe, emoji]`) et, en option, un `dialogue`
-(voir le commentaire en tête du tableau). Pour ouvrir un nouveau parcours,
-il suffit de lui donner une liste `lessons`.
+Parcours 2 à 10 : modifier le fichier correspondant dans `parcours/` (format dans `parcours/README.md`).
+Parcours 1 : tableau `PATHS` dans `index.html` (phonétique dans le dictionnaire `PH`).
 
 ## Mise en ligne (Render, gratuit)
 

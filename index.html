@@ -63,9 +63,11 @@ main{padding:0 0 64px;}
 .path.is-on{border-color:var(--navy);box-shadow:0 0 0 1px var(--navy) inset;}
 
 .xmods{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;}
-.xmod{padding:14px 16px;border:1px dashed var(--line);border-radius:12px;background:#FBFAF7;}
+.xmod{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;}
 .xmod b{display:block;}
-.xmod span{font-size:.86rem;color:var(--ink2);}
+.xmod span{font-size:.86rem;color:var(--ink2);display:block;}
+.xmod .xgo{margin-top:8px;}
+.xmod .xgo .link{font-size:.86rem;text-align:left;}
 
 /* ---- Parcours ouvert ---- */
 .ph{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px;}
@@ -227,13 +229,13 @@ footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--ink3);fo
 
     <section class="section">
       <h2 class="h2">Modules transversaux</h2>
-      <p class="lead">Présents à tous les niveaux, du A1 au B2.</p>
-      <div class="xmods">
-        <div class="xmod"><b>📞 Phone Calls</b><span>Appeler un hôtel, une agence, un garage, une banque, un médecin…</span></div>
-        <div class="xmod"><b>📅 Appointments</b><span>Prendre, reporter et annuler un rendez-vous.</span></div>
-        <div class="xmod"><b>💰 Ask the Price</b><span>De « How much is it? » à « Could you give me a breakdown of the costs? »</span></div>
-        <div class="xmod"><b>🎧 Dubai Accents</b><span>Comprendre l’anglais réellement parlé à Dubaï.</span></div>
-        <div class="xmod"><b>🚨 Emergency English</b><span>Police, ambulance, accident, perte de passeport.</span></div>
+      <p class="lead">Des compétences qui reviennent dans tous les parcours, du A1 au B2.</p>
+      <div class="xmods" id="xmods">
+        <div class="xmod"><b>📞 Phone Calls</b><span>Appeler un hôtel, une agence, un garage, une banque, un médecin…</span><span class="xgo"><button type="button" class="link" data-open="soc-phone">Téléphoner et prendre rendez-vous</button> · <button type="button" class="link" data-open="live-visit">Appeler une agence</button></span></div>
+        <div class="xmod"><b>📅 Appointments</b><span>Prendre, reporter et annuler un rendez-vous.</span><span class="xgo"><button type="button" class="link" data-open="soc-phone">Ouvrir la leçon</button></span></div>
+        <div class="xmod"><b>💰 Ask the Price</b><span>De « How much is it? » à « Could you give me a breakdown of the costs? »</span><span class="xgo"><button type="button" class="link" data-open="arr-taxi">A1</button> · <button type="button" class="link" data-open="live-price">A2</button> · <button type="button" class="link" data-open="biz-consultant">B1</button> · <button type="button" class="link" data-open="re-analyse">B2</button></span></div>
+        <div class="xmod"><b>🎧 Dubai Accents</b><span>Dans chaque dialogue, vos interlocuteurs parlent avec une autre voix que la vôtre (britannique, indienne…) quand votre appareil en propose.</span></div>
+        <div class="xmod"><b>🚨 Emergency English</b><span>Police, ambulance, accident, perte de passeport.</span><span class="xgo"><button type="button" class="link" data-open="adm-emergency">Ouvrir la leçon</button></span></div>
       </div>
     </section>
   </main>
@@ -250,6 +252,16 @@ footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--ink3);fo
   </div>
 </div>
 
+<!-- Contenu des parcours 2 à 10 : un fichier par parcours (voir parcours/README.md) -->
+<script src="parcours/live.js"></script>
+<script src="parcours/move.js"></script>
+<script src="parcours/everyday.js"></script>
+<script src="parcours/admin.js"></script>
+<script src="parcours/work.js"></script>
+<script src="parcours/business.js"></script>
+<script src="parcours/realestate.js"></script>
+<script src="parcours/invest.js"></script>
+<script src="parcours/social.js"></script>
 <script>
 (function(){
   /* =====================================================================
@@ -462,14 +474,14 @@ footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--ink3);fo
         ]}
     ]},
     {key:'live',emoji:'🏠',en:'Live in Dubai',fr:'Se loger : chercher, visiter, négocier, louer',level:'A1-A2'},
-    {key:'move',emoji:'🚕',en:'Move Around Dubai',fr:'Métro, voiture, station-service, garage',level:'A1-A2'},
-    {key:'everyday',emoji:'🛒',en:'Everyday Life',fr:'Courses, restaurant, hôtel, téléphone',level:'A1-A2'},
-    {key:'admin',emoji:'🏥',en:'Health & Administration',fr:'Banque, documents, assurance, santé, école',level:'A2-B1'},
-    {key:'work',emoji:'💼',en:'Work in Dubai',fr:'Emploi, entretien, vie professionnelle, contrat',level:'A2-B1'},
-    {key:'business',emoji:'🏢',en:'Start a Business',fr:'Créer sa société, free zone, local commercial',level:'B1-B2'},
-    {key:'realestate',emoji:'🏙️',en:'Real Estate',fr:'Acheter, off-plan, investissement locatif',level:'B1-B2'},
-    {key:'invest',emoji:'💰',en:'Investment English',fr:'Financement, contrats, partenariats',level:'B1-B2'},
-    {key:'social',emoji:'🤝',en:'Professional & Social English',fr:'Rencontres, sorties, réservations',level:'B1-B2'}
+    {key:'move',emoji:'🚕',en:'Move Around Dubai',fr:'Métro, station-service, garage',level:'A1-A2'},
+    {key:'everyday',emoji:'🛒',en:'Everyday Life',fr:'Courses, restaurant, hôtel',level:'A1-A2'},
+    {key:'admin',emoji:'🏥',en:'Health & Administration',fr:'Banque, santé, documents, urgences',level:'A2-B1'},
+    {key:'work',emoji:'💼',en:'Work in Dubai',fr:'Emploi, entretien, vie au bureau',level:'A2-B1'},
+    {key:'business',emoji:'🏢',en:'Start a Business',fr:'Créer sa société, consultant, local commercial',level:'B1-B2'},
+    {key:'realestate',emoji:'🏙️',en:'Real Estate',fr:'Vocabulaire, analyser un bien, faire une offre',level:'B1-B2'},
+    {key:'invest',emoji:'💰',en:'Investment English',fr:'Financement, rendement, contrats',level:'B1-B2'},
+    {key:'social',emoji:'🤝',en:'Professional & Social English',fr:'Rencontres, sorties, téléphone et rendez-vous',level:'B1-B2'}
   ];
 
   /* =====================================================================
@@ -608,7 +620,16 @@ footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--ink3);fo
      ÉTAT, STOCKAGE, AUDIO
      ===================================================================== */
   var KEY='dubai_progress', SUPKEY='dubai_support', PHKEY='dubai_phonetic';
-  var LESSONS={}; PATHS.forEach(function(p){(p.lessons||[]).forEach(function(l){LESSONS[l.id]=l;});});
+  /* Parcours 2 à 10 : chargés depuis parcours/<clé>.js (window.EXPATIA[clé] = [leçons…]).
+     Dans ces fichiers, la phonétique est donnée avec chaque phrase :
+     mot = [anglais, français, arabe, emoji, phonétique], réplique = {…, ph:'…'}. */
+  var EXTRA=window.EXPATIA||{};
+  PATHS.forEach(function(p){ if(!p.lessons&&EXTRA[p.key]) p.lessons=EXTRA[p.key]; });
+  var LESSONS={}; PATHS.forEach(function(p){(p.lessons||[]).forEach(function(l){
+    LESSONS[l.id]=l; l.path=p;
+    (l.words||[]).forEach(function(w){ if(w[4]&&!PH[w[0]]) PH[w[0]]=w[4]; });
+    (l.dialogue||[]).forEach(function(t){ if(t.ph){ var en=t.me?t.choices[0]:t.en; if(!PH[en]) PH[en]=t.ph; } });
+  });});
   var support=readSupport(), phon=readPhon(), activePath=null, cur=null, st=null, lastFocus=null;
 
   function readSupport(){try{var v=localStorage.getItem(SUPKEY);return (v==='fr'||v==='ar'||v==='both')?v:'both';}catch(e){return 'both';}}
@@ -694,6 +715,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--ink3);fo
     pathView.scrollIntoView({behavior:'smooth',block:'start'});
   });
   pathPanel.addEventListener('click',function(e){var b=e.target.closest('[data-open]'); if(b) openLesson(b.getAttribute('data-open'));});
+  document.getElementById('xmods').addEventListener('click',function(e){var b=e.target.closest('[data-open]'); if(b&&LESSONS[b.getAttribute('data-open')]) openLesson(b.getAttribute('data-open'));});
 
   /* Sélecteur de langue d'appui */
   var seg=document.querySelector('.seg');
@@ -805,8 +827,13 @@ footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--ink3);fo
     body.innerHTML='<div class="end">'+head()
       +'<div class="score">'+pct+' %</div><p class="sub">de réponses justes du premier coup. '+verdict+'</p>'
       +'<div>'+parts.map(function(p){return '<span class="pill">'+p+'</span>';}).join(' ')+'</div>'
-      +(mission&&pct>=50?'<p class="note" style="margin-top:16px">🎉 Mission accomplie : vous êtes arrivé(e) chez vous. Prochain parcours : <b>Live in Dubai</b> (bientôt).</p>':'')
+      +(mission&&pct>=50?'<p class="note" style="margin-top:16px">🎉 Mission accomplie !'+nextPathTxt(cur.path)+'</p>':'')
       +'<div class="acts center"><button type="button" class="btn alt" data-learn>Revoir '+(mission?'le briefing':'les mots')+'</button><button type="button" class="btn alt" data-go="'+st.plan[0]+'">Recommencer</button><button type="button" class="btn" data-close>Retour au parcours</button></div></div>';
+  }
+
+  function nextPathTxt(p){
+    var i=PATHS.indexOf(p), n=PATHS[i+1];
+    return n?' Parcours suivant : <b>'+esc(n.emoji+' '+n.en)+'</b>.':' Vous avez terminé tous les parcours.';
   }
 
   /* ----- Traduction & écoute (QCM) ----- */
