@@ -12,7 +12,7 @@
 <style>
 :root{
   --bg:#F7F4EE; --surface:#FFFFFF; --ink:#14202E; --ink2:#4A5563; --ink3:#8A93A0;
-  --navy:#0E2A47; --navy2:#1B4470; --gold:#B8893B; --gold-soft:#F4EAD7;
+  --navy:#0E2A47; --navy2:#1B4470; --gold:#B8893B; --gold2:#D9B26A; --gold-soft:#F4EAD7;
   --line:#E4DED3; --ok:#1F7A4D; --ok-soft:#E3F2EA; --no:#B3261E; --no-soft:#FBE9E7;
   --radius:14px; --shadow:0 1px 2px rgba(20,32,46,.06),0 8px 24px -12px rgba(20,32,46,.18);
 }
@@ -24,73 +24,132 @@ button{font:inherit;color:inherit;}
 .wrap{max-width:1080px;margin:0 auto;padding:0 16px;}
 
 /* ---- Barre du haut ---- */
-.top{background:var(--navy);color:#fff;}
+.top{background:#0B2340;color:#fff;border-bottom:1px solid rgba(255,255,255,.08);}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px;}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.01em;}
 .brand-mark{width:32px;height:32px;border-radius:8px;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-family:Georgia,serif;font-size:19px;}
 .brand small{display:block;font-weight:500;font-size:.72rem;color:#AFC0D4;letter-spacing:.06em;text-transform:uppercase;}
-.langsw{display:flex;align-items:center;gap:8px;font-size:.8rem;color:#C9D5E3;}
+.langsw{display:flex;align-items:center;gap:8px;font-size:.8rem;color:#C9D5E3;flex-wrap:wrap;}
+@media (max-width:640px){#langsw-label{display:none;}}
 .seg{display:inline-flex;background:rgba(255,255,255,.08);border-radius:9px;padding:3px;}
 .seg button{border:0;background:transparent;color:#DCE5EF;padding:6px 10px;border-radius:7px;cursor:pointer;font-size:.82rem;font-weight:600;}
 .seg button.is-on{background:#fff;color:var(--navy);}
 
 /* ---- Accueil ---- */
-.hero{background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:40px 0 56px;}
-.hero h1{font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.15;font-weight:700;max-width:720px;}
-.hero p{color:#CFDAE7;max-width:640px;margin-top:12px;}
-.hero .ar{margin-top:6px;color:#E9D9B8;}
-.chain{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
-.chain span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);padding:6px 12px;border-radius:999px;font-size:.84rem;}
+.hero{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 85% 0%,#2A5D8F 0%,rgba(42,93,143,0) 55%),linear-gradient(180deg,#0B2340 0%,#123A63 100%);color:#fff;padding:48px 0 120px;}
+.hero::after{content:"";position:absolute;right:-120px;top:-160px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,90,.35),rgba(212,168,90,0) 70%);pointer-events:none;}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .9fr;gap:40px;align-items:center;}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr;gap:28px;}.hero{padding:32px 0 100px;}}
+.kicker{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);}
+.hero h1{font-size:clamp(1.9rem,4.6vw,3rem);line-height:1.08;font-weight:800;letter-spacing:-.02em;margin-top:12px;}
+.hero h1 em{font-style:normal;color:var(--gold2);}
+.hero p{color:#CFDAE7;max-width:560px;margin-top:14px;font-size:1.05rem;}
+.hero .ar{margin-top:8px;color:#E9D9B8;font-size:1rem;}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;}
+.facts{list-style:none;display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:28px;color:#AFC0D4;font-size:.9rem;}
+.facts b{display:block;color:#fff;font-size:1.5rem;line-height:1.1;font-weight:800;}
+.skyline{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:110px;z-index:0;display:block;}
+.nextcard{background:#fff;color:var(--ink);border-radius:18px;padding:22px;box-shadow:0 30px 60px -25px rgba(0,0,0,.55);}
+.nextcard .lbl{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
+.nc-row{display:flex;gap:14px;align-items:center;margin-top:14px;}
+.nc-row .badge{flex:none;}
+.nc-row b{display:block;font-size:1.08rem;line-height:1.3;}
+.nc-row span{font-size:.86rem;color:var(--ink2);}
+.nc-prog{display:flex;align-items:center;gap:14px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);}
+.ring{--p:0;flex:none;width:56px;height:56px;border-radius:50%;background:conic-gradient(var(--gold) calc(var(--p)*1%),#EEE9DF 0);display:grid;place-items:center;}
+.ring span{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:800;font-size:.85rem;color:var(--navy);}
+.nc-prog small{color:var(--ink2);font-size:.86rem;line-height:1.4;}
+.nextcard .btn{width:100%;margin-top:16px;}
+
+.badge{width:48px;height:48px;border-radius:14px;background:var(--navy);color:var(--gold2);display:grid;place-items:center;}
+.badge .ic{width:26px;height:26px;}
+.badge.done{background:var(--ok);color:#fff;}
+.ic{width:20px;height:20px;display:inline-block;vertical-align:middle;flex:none;}
+
 main{padding:0 0 64px;}
-.section{margin-top:-28px;}
-.section + .section{margin-top:36px;}
-.h2{font-size:1.25rem;font-weight:700;margin:0 0 4px;}
-.lead{color:var(--ink2);margin-bottom:16px;font-size:.95rem;}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);}
-.panel{padding:22px;}
+.sec-head{margin-bottom:18px;}
+.sec-head h2{font-size:1.5rem;font-weight:800;letter-spacing:-.01em;}
+.sec-head p{color:var(--ink2);margin-top:4px;}
+#roadmap{position:relative;z-index:2;margin-top:-56px;background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:28px 26px 10px;scroll-margin-top:16px;}
+@media (max-width:560px){#roadmap{padding:22px 16px 6px;}}
+.stage{display:grid;grid-template-columns:44px 1fr;gap:18px;padding-bottom:26px;position:relative;}
+.stage::before{content:"";position:absolute;left:21px;top:46px;bottom:6px;width:2px;background:repeating-linear-gradient(var(--line) 0 6px,transparent 6px 12px);}
+.stage:last-child::before{display:none;}
+.stage-no{width:44px;height:44px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:grid;place-items:center;font-weight:800;background:#fff;position:relative;z-index:1;}
+.stage.done .stage-no{background:var(--ok);border-color:var(--ok);color:#fff;}
+.stage-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:8px;}
+.stage-head h3{font-size:1.15rem;font-weight:800;}
+.stage-head p{flex-basis:100%;color:var(--ink2);font-size:.92rem;margin-top:2px;}
+.pcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin-top:14px;}
+.pcard{display:grid;grid-template-columns:48px 1fr 20px;gap:14px;align-items:center;text-align:left;width:100%;padding:16px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer;transition:border-color .15s,box-shadow .15s,transform .15s;}
+.pcard:hover{border-color:var(--gold);box-shadow:0 12px 24px -16px rgba(14,42,71,.45);transform:translateY(-2px);}
+.pcard .pt{font-weight:700;font-size:1rem;line-height:1.25;}
+.pcard .pt small{display:block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:2px;}
+.pcard .pf{font-size:.86rem;color:var(--ink2);margin-top:2px;}
+.pcard .pm{display:flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;color:#7A5A22;margin-top:8px;}
+.pcard .pm .ic{width:15px;height:15px;color:var(--gold);}
+.pcard .pp{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:.76rem;color:var(--ink3);font-weight:600;}
+.pcard .pp .bar{flex:1;margin:0;height:6px;}
+.pcard > .ic{color:var(--ink3);}
+.pcard:hover > .ic{color:var(--gold);}
+.pcard.done{border-color:#BFE0CD;}
 
-.paths{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;}
-.path{display:flex;flex-direction:column;gap:6px;text-align:left;padding:16px;border-radius:12px;border:1px solid var(--line);background:#fff;cursor:pointer;transition:border-color .15s,transform .15s;}
-.path:hover:not([disabled]){border-color:var(--gold);transform:translateY(-1px);}
-.path[disabled]{cursor:default;background:#FBFAF7;}
-.path .pe{font-size:1.5rem;}
-.path b{font-size:1rem;}
-.path .pf{font-size:.86rem;color:var(--ink2);}
-.path .meta{display:flex;gap:6px;align-items:center;margin-top:auto;padding-top:6px;flex-wrap:wrap;}
-.tag{font-size:.72rem;font-weight:700;letter-spacing:.04em;padding:3px 8px;border-radius:6px;background:var(--gold-soft);color:#7A5A22;}
-.tag.soon{background:#EEF0F3;color:var(--ink3);}
-.tag.live{background:var(--ok-soft);color:var(--ok);}
-.path.is-on{border-color:var(--navy);box-shadow:0 0 0 1px var(--navy) inset;}
+.skills-sec{margin-top:40px;}
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;}
+.skill{display:flex;gap:12px;align-items:flex-start;text-align:left;padding:16px;border:1px solid var(--line);border-radius:14px;background:#fff;}
+.skill .sk-ic{flex:none;width:38px;height:38px;border-radius:10px;background:var(--gold-soft);color:#7A5A22;display:grid;place-items:center;}
+.skill b{display:block;}
+.skill span{display:block;font-size:.86rem;color:var(--ink2);margin-top:2px;}
+.skill .xgo{margin-top:8px;}
+.skill .link{font-size:.86rem;text-align:left;}
 
-.xmods{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;}
-.xmod{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;}
-.xmod b{display:block;}
-.xmod span{font-size:.86rem;color:var(--ink2);display:block;}
-.xmod .xgo{margin-top:8px;}
-.xmod .xgo .link{font-size:.86rem;text-align:left;}
-
-/* ---- Parcours ouvert ---- */
-.ph{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px;}
-.ph h2{font-size:1.4rem;}
-.progress{min-width:200px;}
-.progress small{color:var(--ink2);font-size:.82rem;}
+/* ---- Page d'un parcours ---- */
+.p-hero{background:linear-gradient(180deg,#0B2340 0%,#123A63 100%);color:#fff;padding:22px 0 78px;}
+.back{display:inline-flex;align-items:center;gap:8px;border:0;background:rgba(255,255,255,.1);color:#fff;padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:600;font-size:.88rem;}
+.back:hover{background:rgba(255,255,255,.18);}
+.p-head{display:flex;gap:18px;align-items:center;margin-top:22px;flex-wrap:wrap;}
+.p-head .badge{width:64px;height:64px;border-radius:18px;background:rgba(255,255,255,.1);}
+.p-head .badge .ic{width:34px;height:34px;}
+.p-head h1{font-size:clamp(1.6rem,4vw,2.3rem);font-weight:800;letter-spacing:-.01em;line-height:1.1;}
+.p-head p{color:#CFDAE7;margin-top:4px;}
+.p-head .tag{background:rgba(212,168,90,.18);color:var(--gold2);}
+.p-meta{display:flex;align-items:center;gap:14px;margin-top:20px;max-width:520px;color:#CFDAE7;font-size:.88rem;}
+.p-meta .bar{flex:1;margin:0;background:rgba(255,255,255,.15);}
+.p-body{position:relative;z-index:2;margin-top:-50px;background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:26px 24px;}
+@media (max-width:560px){.p-body{padding:20px 14px;}}
+.steps{list-style:none;position:relative;}
+.step{display:grid;grid-template-columns:40px 1fr auto;gap:16px;align-items:center;padding:12px 0;position:relative;}
+.step::before{content:"";position:absolute;left:19px;top:-12px;height:24px;width:2px;background:var(--line);}
+.step:first-child::before{display:none;}
+.step .dot{width:40px;height:40px;border-radius:50%;border:2px solid var(--line);background:#fff;display:grid;place-items:center;font-weight:800;color:var(--ink3);position:relative;z-index:1;}
+.step.done .dot{background:var(--ok);border-color:var(--ok);color:#fff;}
+.step.next .dot{border-color:var(--gold);color:var(--gold);box-shadow:0 0 0 5px var(--gold-soft);}
+.step .sb .kind{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);}
+.step .sb b{display:block;font-size:1.02rem;}
+.step .sb span.d{display:block;font-size:.88rem;color:var(--ink2);}
+.step .sb .status{display:inline-block;margin-top:4px;}
+.step .reco{display:inline-block;margin-left:6px;font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--gold);color:#fff;padding:2px 7px;border-radius:5px;vertical-align:middle;}
+.step.mission{margin-top:14px;padding:20px;border-radius:16px;background:linear-gradient(135deg,#0B2340,#1B4470);color:#fff;grid-template-columns:48px 1fr auto;}
+.step.mission::before{display:none;}
+.step.mission .dot{width:48px;height:48px;border:0;background:var(--gold);color:var(--navy);}
+.step.mission .dot .ic{width:26px;height:26px;}
+.step.mission .sb .kind{color:var(--gold2);}
+.step.mission .sb span.d{color:#CFDAE7;}
+.step.mission .status{color:#AFC0D4;} .step.mission .status.s3{color:#8EE0B2;}
+.step.mission .btn{background:var(--gold);color:var(--navy);}
+.step.mission .btn:hover{background:var(--gold2);}
+@media (max-width:560px){
+  .step,.step.mission{grid-template-columns:40px 1fr;}
+  .step > .btn{grid-column:2;justify-self:start;}
+}
+.p-next{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;padding:16px 18px;border-radius:14px;border:1px dashed var(--line);flex-wrap:wrap;}
+.p-next span{color:var(--ink2);font-size:.9rem;}
+.p-next b{color:var(--ink);}
 .bar{height:8px;background:#EEE9DF;border-radius:99px;overflow:hidden;margin-top:6px;}
 .bar i{display:block;height:100%;background:var(--gold);border-radius:99px;transition:width .3s;}
-.lessons{display:grid;gap:10px;}
-.lesson{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;}
-.lesson .le{width:44px;height:44px;border-radius:10px;background:var(--gold-soft);display:grid;place-items:center;font-size:1.3rem;}
-.lesson .lt b{display:block;}
-.lesson .lt span{font-size:.88rem;color:var(--ink2);}
-.lesson .lt .kind{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);}
-.lesson.mission{border-color:var(--navy);background:linear-gradient(90deg,#F1F5FA,#fff 60%);}
-.lesson.mission .le{background:var(--navy);color:#fff;}
-.lesson .ls{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+.tag{font-size:.72rem;font-weight:700;letter-spacing:.04em;padding:3px 8px;border-radius:6px;background:var(--gold-soft);color:#7A5A22;}
 .status{font-size:.76rem;font-weight:600;color:var(--ink3);white-space:nowrap;}
 .status.s3{color:var(--ok);} .status.s2{color:#8A6420;} .status.s1{color:var(--no);}
-@media (max-width:560px){
-  .lesson{grid-template-columns:40px 1fr;}
-  .lesson .ls{grid-column:1 / -1;flex-direction:row;justify-content:space-between;align-items:center;}
-}
 
 /* ---- Boutons ---- */
 .btn{border:0;border-radius:10px;padding:11px 18px;font-weight:600;cursor:pointer;background:var(--navy);color:#fff;font-size:.95rem;}
@@ -98,6 +157,12 @@ main{padding:0 0 64px;}
 .btn.alt{background:#fff;color:var(--navy);box-shadow:0 0 0 1.5px var(--line) inset;}
 .btn.alt:hover{box-shadow:0 0 0 1.5px var(--navy) inset;}
 .btn.sm{padding:8px 14px;font-size:.86rem;}
+.btn.lg{padding:14px 24px;font-size:1.02rem;border-radius:12px;}
+.btn.gold{background:var(--gold2);color:#0B2340;}
+.btn.gold:hover{background:#E6C585;}
+.btn.ghost{background:transparent;color:#fff;box-shadow:0 0 0 1.5px rgba(255,255,255,.35) inset;text-decoration:none;display:inline-block;}
+.btn.ghost:hover{background:rgba(255,255,255,.08);}
+.btn .ic{width:18px;height:18px;margin-left:6px;margin-top:-2px;}
 .link{border:0;background:none;color:var(--navy2);font-weight:600;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px;}
 .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
 .acts.center{justify-content:center;}
@@ -202,46 +267,58 @@ footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--ink3);fo
   </div>
 </header>
 
-<div id="home">
+<div id="home-view">
   <section class="hero">
-    <div class="wrap">
-      <h1>L’anglais dont vous avez vraiment besoin pour vous installer à Dubaï.</h1>
-      <p>Aéroport, taxi, logement, banque, travail, création d’entreprise, immobilier : des situations réelles, avec audio, dialogues et missions concrètes.</p>
-      <p class="ar" lang="ar" dir="rtl">الإنجليزية التي تحتاجها فعلاً للاستقرار في دبي: مواقف حقيقية، مع الصوت والحوارات والمهام العملية.</p>
-      <div class="chain" aria-label="Méthode">
-        <span>English</span><span>→ Français</span><span lang="ar">→ العربية</span><span>→ 🔊 Audio</span><span>→ 💬 Dialogue</span><span>→ 🎯 Mission</span>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">Anglais pour expatriés · du A1 au B2</span>
+        <h1>Préparez votre nouvelle vie à Dubaï, <em>en anglais</em>.</h1>
+        <p>Des situations réelles, de l’aéroport à l’achat d’un appartement. Écoutez, répondez, puis relevez une vraie mission à la fin de chaque parcours.</p>
+        <p class="ar" lang="ar" dir="rtl">الإنجليزية التي تحتاجها فعلاً للاستقرار في دبي، من المطار إلى شراء شقة.</p>
+        <div class="hero-cta">
+          <button type="button" class="btn gold lg" id="cta-main">Commencer</button>
+          <a class="btn ghost lg" href="#roadmap">Voir le programme</a>
+        </div>
+        <ul class="facts" id="facts"></ul>
       </div>
+      <aside class="nextcard" id="nextcard" aria-label="Votre prochaine étape"></aside>
     </div>
+    <svg class="skyline" viewBox="0 0 1200 110" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <g fill="rgba(255,255,255,.07)">
+      <rect x="0" y="70" width="60" height="40"/><rect x="66" y="52" width="38" height="58"/><rect x="110" y="78" width="50" height="32"/><rect x="166" y="40" width="30" height="70"/><rect x="202" y="62" width="44" height="48"/>
+      <rect x="252" y="30" width="26" height="80"/><rect x="284" y="58" width="52" height="52"/><rect x="342" y="46" width="34" height="64"/><rect x="382" y="74" width="60" height="36"/>
+      <rect x="448" y="36" width="30" height="74"/><rect x="484" y="60" width="46" height="50"/><rect x="536" y="50" width="28" height="60"/>
+      <polygon points="600,0 603,30 607,48 611,66 615,84 619,110 581,110 585,84 589,66 593,48 597,30"/>
+      <rect x="636" y="56" width="40" height="54"/><rect x="682" y="42" width="30" height="68"/><rect x="718" y="68" width="56" height="42"/><rect x="780" y="34" width="28" height="76"/>
+      <rect x="814" y="62" width="44" height="48"/><path d="M880 110 Q892 44 930 20 L934 20 L934 110 Z"/><rect x="950" y="58" width="48" height="52"/><rect x="1004" y="44" width="30" height="66"/>
+      <rect x="1040" y="72" width="54" height="38"/><rect x="1100" y="50" width="36" height="60"/><rect x="1142" y="66" width="58" height="44"/>
+    </g>
+    <rect x="0" y="104" width="1200" height="6" fill="var(--bg)"/>
+  </svg>
   </section>
 
   <main class="wrap">
-    <section class="section">
-      <div class="card panel">
-        <h2 class="h2">Les parcours</h2>
-        <p class="lead">Du niveau A1 au B2, dans l’ordre où vous en aurez besoin après votre arrivée.</p>
-        <div class="paths" id="paths"></div>
-      </div>
+    <section id="roadmap" aria-labelledby="rm-title">
+      <div class="sec-head"><h2 id="rm-title">Votre feuille de route</h2><p>Quatre étapes, dans l’ordre où vous en aurez besoin après votre arrivée. Chaque parcours se termine par une mission.</p></div>
+      <div id="roadmap-list"></div>
     </section>
 
-    <section class="section" id="path-view" hidden>
-      <div class="card panel" id="path-panel"></div>
-    </section>
-
-    <section class="section">
-      <h2 class="h2">Modules transversaux</h2>
-      <p class="lead">Des compétences qui reviennent dans tous les parcours, du A1 au B2.</p>
-      <div class="xmods" id="xmods">
-        <div class="xmod"><b>📞 Phone Calls</b><span>Appeler un hôtel, une agence, un garage, une banque, un médecin…</span><span class="xgo"><button type="button" class="link" data-open="soc-phone">Téléphoner et prendre rendez-vous</button> · <button type="button" class="link" data-open="live-visit">Appeler une agence</button></span></div>
-        <div class="xmod"><b>📅 Appointments</b><span>Prendre, reporter et annuler un rendez-vous.</span><span class="xgo"><button type="button" class="link" data-open="soc-phone">Ouvrir la leçon</button></span></div>
-        <div class="xmod"><b>💰 Ask the Price</b><span>De « How much is it? » à « Could you give me a breakdown of the costs? »</span><span class="xgo"><button type="button" class="link" data-open="arr-taxi">A1</button> · <button type="button" class="link" data-open="live-price">A2</button> · <button type="button" class="link" data-open="biz-consultant">B1</button> · <button type="button" class="link" data-open="re-analyse">B2</button></span></div>
-        <div class="xmod"><b>🎧 Dubai Accents</b><span>Dans chaque dialogue, vos interlocuteurs parlent avec une autre voix que la vôtre (britannique, indienne…) quand votre appareil en propose.</span></div>
-        <div class="xmod"><b>🚨 Emergency English</b><span>Police, ambulance, accident, perte de passeport.</span><span class="xgo"><button type="button" class="link" data-open="adm-emergency">Ouvrir la leçon</button></span></div>
+    <section class="skills-sec" aria-labelledby="sk-title">
+      <div class="sec-head"><h2 id="sk-title">Compétences clés</h2><p>Des situations qui reviennent partout. Travaillez-les directement.</p></div>
+      <div class="skills" id="xmods">
+        <div class="skill"><span class="sk-ic" data-icon="phone"></span><div><b>Phone Calls</b><span>Appeler une agence, un garage, une banque, un médecin.</span><span class="xgo"><button type="button" class="link" data-open="soc-phone">Téléphoner</button> · <button type="button" class="link" data-open="live-visit">Appeler une agence</button></span></div></div>
+        <div class="skill"><span class="sk-ic" data-icon="calendar"></span><div><b>Appointments</b><span>Prendre, déplacer et annuler un rendez-vous.</span><span class="xgo"><button type="button" class="link" data-open="soc-phone">Ouvrir la leçon</button></span></div></div>
+        <div class="skill"><span class="sk-ic" data-icon="coins"></span><div><b>Ask the Price</b><span>De « How much is it? » à « a breakdown of the costs ».</span><span class="xgo"><button type="button" class="link" data-open="arr-taxi">A1</button> · <button type="button" class="link" data-open="live-price">A2</button> · <button type="button" class="link" data-open="biz-consultant">B1</button> · <button type="button" class="link" data-open="re-analyse">B2</button></span></div></div>
+        <div class="skill"><span class="sk-ic" data-icon="alert"></span><div><b>Emergency English</b><span>Police, ambulance, accident, perte de passeport.</span><span class="xgo"><button type="button" class="link" data-open="adm-emergency">Ouvrir la leçon</button></span></div></div>
+        <div class="skill"><span class="sk-ic" data-icon="headphones"></span><div><b>Dubai Accents</b><span>Vos interlocuteurs parlent avec une autre voix que la vôtre (indienne, australienne…) quand votre appareil en propose.</span></div></div>
       </div>
     </section>
   </main>
 
-  <footer><div class="wrap">Les réponses et votre progression restent sur cet appareil. Audio : voix anglaise de votre navigateur (Chrome, Edge ou Safari conseillés).</div></footer>
+  <footer><div class="wrap">Vos réponses et votre progression restent sur cet appareil. Audio : voix anglaise de votre navigateur (Chrome, Edge ou Safari conseillés).</div></footer>
 </div>
+
+<div id="path-page" hidden></div>
 
 <div id="modal" hidden>
   <div class="backdrop" data-close></div>
@@ -370,7 +447,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--ink3);fo
         intro:'La monnaie des Émirats est le dirham (AED). Avant de changer, demandez toujours le taux et s’il y a une commission.',
         words:[
           ['Cash','Espèces','نقود','💵'],
-          ['Dirham','Dirham','درهم','🇦🇪'],
+          ['Dirham','Dirham','درهم','🪙'],
           ['Exchange rate','Taux de change','سعر الصرف','📈'],
           ['ATM','Distributeur automatique','صراف آلي','🏧'],
           ['Commission','Commission','عمولة','🧮'],
@@ -631,7 +708,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--ink3);fo
     (l.words||[]).forEach(function(w){ if(w[4]&&!PH[w[0]]) PH[w[0]]=w[4]; });
     (l.dialogue||[]).forEach(function(t){ if(t.ph){ var en=t.me?t.choices[0]:t.en; if(!PH[en]) PH[en]=t.ph; } });
   });});
-  var support=readSupport(), phon=readPhon(), activePath=null, cur=null, st=null, lastFocus=null;
+  var support=readSupport(), phon=readPhon(), cur=null, st=null, lastFocus=null;
 
   function readSupport(){try{var v=localStorage.getItem(SUPKEY);return (v==='fr'||v==='ar'||v==='both')?v:'both';}catch(e){return 'both';}}
   function readPhon(){try{return localStorage.getItem(PHKEY)!=='off';}catch(e){return true;}}
@@ -691,40 +768,114 @@ footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--ink3);fo
   }
 
   /* =====================================================================
-     ACCUEIL : parcours
+     ACCUEIL (feuille de route) ET PAGE D'UN PARCOURS
+     Navigation : #/p/<clé> ouvre la page d'un parcours, sinon l'accueil.
      ===================================================================== */
-  var pathsBox=document.getElementById('paths'), pathView=document.getElementById('path-view'), pathPanel=document.getElementById('path-panel');
+  var ICON={
+    arrive:'<path d="M2 20h20"/><path d="M3 14l4 1 3-6 2 .6-1.4 6.2 5.4 1.6a1.6 1.6 0 0 0 .9-3.1L5 11 3.4 8.6 2 9z"/>',
+    live:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/>',
+    move:'<path d="M3 17v-4l2-5h14l2 5v4z"/><path d="M3 13h18"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/>',
+    everyday:'<circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L21 7H6"/>',
+    admin:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M12 9v6M9 12h6"/>',
+    work:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/>',
+    business:'<rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M10 21v-3h4v3"/>',
+    realestate:'<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/>',
+    invest:'<path d="M3 20h18"/><path d="M4 16l5-5 4 3 7-8"/><path d="M15 6h5v5"/>',
+    social:'<path d="M4 5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M17 9h3a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v3l-4-3h-3"/>',
+    target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/>',
+    check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+    arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+    back:'<path d="M19 12H5M11 18l-6-6 6-6"/>',
+    phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',
+    calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+    coins:'<ellipse cx="9" cy="7" rx="6" ry="3"/><path d="M3 7v5c0 1.7 2.7 3 6 3s6-1.3 6-3V7"/><path d="M9 15v2c0 1.7 2.7 3 6 3s6-1.3 6-3v-5c0-1.7-2.7-3-6-3"/>',
+    headphones:'<path d="M4 16v-4a8 8 0 0 1 16 0v4"/><rect x="3" y="14" width="4" height="7" rx="1.5"/><rect x="17" y="14" width="4" height="7" rx="1.5"/>',
+    alert:'<path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.5"/>'
+  };
+  function icon(n){return '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(ICON[n]||'')+'</svg>';}
+  var STAGEDEF=[
+    {title:'Arriver',level:'A1',txt:'Vos premières heures à Dubaï : aéroport, taxi, carte SIM, argent.',keys:['arrive']},
+    {title:'S’installer',level:'A1–A2',txt:'Trouver un logement, se déplacer, faire ses courses.',keys:['live','move','everyday']},
+    {title:'Travailler et gérer',level:'A2–B1',txt:'Banque, santé, papiers et vie professionnelle.',keys:['admin','work']},
+    {title:'Entreprendre et investir',level:'B1–B2',txt:'Créer sa société, acheter, financer, développer son réseau.',keys:['business','realestate','invest','social']}
+  ];
+  function pathByKey(k){return PATHS.filter(function(p){return p.key===k;})[0];}
+  function passed(prog,l){return prog[l.id]!==undefined&&prog[l.id]>=50;}
+  function doneCount(p,prog){return p.lessons.filter(function(l){return passed(prog,l);}).length;}
+  function missionOf(p){return p.lessons.filter(function(l){return l.kind==='mission';})[0];}
+  function nextOf(p,prog){return p.lessons.filter(function(l){return !passed(prog,l);})[0]||null;}
+  function nextOverall(prog){for(var i=0;i<PATHS.length;i++){var n=nextOf(PATHS[i],prog); if(n) return n;} return null;}
+  function kindLabel(l){return l.kind==='mission'?'Mission':(l.kind==='vocab'?'Vocabulaire':(l.kind==='phrases'?'Expressions et dialogue':'Mots, expressions et dialogue'));}
+  function barHtml(d,n){return '<div class="bar"><i style="width:'+Math.round(d/n*100)+'%"></i></div>';}
 
-  function renderPaths(){
-    pathsBox.innerHTML=PATHS.map(function(p,i){
-      var live=!!(p.lessons&&p.lessons.length);
-      return '<button type="button" class="path'+(activePath===p.key?' is-on':'')+'" data-path="'+p.key+'"'+(live?'':' disabled')+'>'
-        +'<span class="pe" aria-hidden="true">'+p.emoji+'</span><b>'+(i+1)+'. '+esc(p.en)+'</b><span class="pf">'+esc(p.fr)+'</span>'
-        +'<span class="meta"><span class="tag">'+p.level+'</span>'+(live?'<span class="tag live">'+p.lessons.length+' étapes</span>':'<span class="tag soon">Bientôt</span>')+'</span></button>';
+  var homeView=document.getElementById('home-view'), pathPage=document.getElementById('path-page');
+
+  function renderHome(){
+    var prog=load(), total=0, done=0, missions=0;
+    PATHS.forEach(function(p){total+=p.lessons.length; done+=doneCount(p,prog); if(missionOf(p)) missions++;});
+    var pct=total?Math.round(done/total*100):0, nx=nextOverall(prog), started=done>0||Object.keys(prog).length>0;
+    document.getElementById('facts').innerHTML='<li><b>'+PATHS.length+'</b>parcours</li><li><b>'+total+'</b>étapes</li><li><b>'+missions+'</b>missions réelles</li><li><b>3</b>langues : EN · FR · عربي</li>';
+    var cta=document.getElementById('cta-main');
+    cta.innerHTML=(nx?(started?'Continuer : ':'Commencer : ')+esc(nx.title):'Tout revoir')+icon('arrow');
+    cta.setAttribute('data-open',nx?nx.id:PATHS[0].lessons[0].id);
+    var np=nx?nx.path:PATHS[0];
+    document.getElementById('nextcard').innerHTML='<span class="lbl">'+(nx?(started?'Votre prochaine étape':'Pour bien démarrer'):'Parcours terminé')+'</span>'
+      +'<div class="nc-row"><span class="badge">'+icon(nx&&nx.kind==='mission'?'target':np.key)+'</span><div><b>'+esc(nx?nx.title:'Bravo, tout est validé !')+'</b><span>Parcours '+(PATHS.indexOf(np)+1)+' · '+esc(np.en)+(nx?' · '+kindLabel(nx):'')+'</span></div></div>'
+      +'<div class="nc-prog"><div class="ring" style="--p:'+pct+'"><span>'+pct+'%</span></div><small><b>'+done+' / '+total+'</b> étapes validées.<br>'+(done?'Continuez, chaque étape compte.':'Environ 5 minutes par leçon.')+'</small></div>'
+      +'<button type="button" class="btn" data-open="'+(nx?nx.id:PATHS[0].lessons[0].id)+'">'+(nx?(started?'Continuer':'Commencer maintenant'):'Revoir le premier parcours')+'</button>';
+    document.getElementById('roadmap-list').innerHTML=STAGEDEF.map(function(sg,si){
+      var paths=sg.keys.map(pathByKey).filter(Boolean);
+      var sgDone=paths.every(function(p){return doneCount(p,prog)===p.lessons.length;});
+      return '<div class="stage'+(sgDone?' done':'')+'"><div class="stage-no">'+(sgDone?icon('check'):(si+1))+'</div><div>'
+        +'<div class="stage-head"><h3>'+esc(sg.title)+'</h3><span class="tag">'+sg.level+'</span><p>'+esc(sg.txt)+'</p></div>'
+        +'<div class="pcards">'+paths.map(function(p){
+          var d=doneCount(p,prog), n=p.lessons.length, m=missionOf(p), full=d===n;
+          return '<button type="button" class="pcard'+(full?' done':'')+'" data-path="'+p.key+'">'
+            +'<span class="badge'+(full?' done':'')+'">'+icon(full?'check':p.key)+'</span>'
+            +'<span><span class="pt"><small>Parcours '+(PATHS.indexOf(p)+1)+'</small>'+esc(p.en)+'</span><span class="pf" style="display:block">'+esc(p.fr)+'</span>'
+            +(m?'<span class="pm">'+icon('target')+esc(m.title.replace(/^Mission \d+ — /,'Mission : '))+'</span>':'')
+            +'<span class="pp">'+barHtml(d,n)+'<span>'+d+' / '+n+'</span></span></span>'
+            +icon('arrow')+'</button>';
+        }).join('')+'</div></div></div>';
     }).join('');
+    Array.prototype.forEach.call(document.querySelectorAll('[data-icon]'),function(el){el.innerHTML=icon(el.getAttribute('data-icon'));});
   }
-  function renderPath(){
-    var p=PATHS.filter(function(x){return x.key===activePath;})[0];
-    if(!p){pathView.hidden=true;return;}
-    var prog=load(), done=p.lessons.filter(function(l){return prog[l.id]!==undefined&&prog[l.id]>=50;}).length;
-    pathView.hidden=false;
-    pathPanel.innerHTML='<div class="ph"><div><span class="tag">'+p.level+'</span><h2 style="margin-top:6px">'+p.emoji+' '+esc(p.en)+'</h2><p class="sub">'+esc(p.fr)+'. Terminez les leçons dans l’ordre, puis relevez la mission finale.</p></div>'
-      +'<div class="progress"><small>'+done+' / '+p.lessons.length+' étapes validées</small><div class="bar"><i style="width:'+Math.round(done/p.lessons.length*100)+'%"></i></div></div></div>'
-      +'<div class="lessons">'+p.lessons.map(function(l,i){
-        var mission=l.kind==='mission';
-        var kind=mission?'Mission':(l.kind==='vocab'?'Vocabulaire':(l.kind==='phrases'?'Expressions + dialogue':'Mots, expressions + dialogue'));
-        return '<div class="lesson'+(mission?' mission':'')+'"><span class="le" aria-hidden="true">'+l.emoji+'</span>'
-          +'<div class="lt"><span class="kind">'+(mission?'':'Leçon '+(i+1)+' · ')+kind+'</span><b>'+esc(l.title)+'</b><span>'+esc(l.desc)+'</span></div>'
-          +'<div class="ls">'+statusOf(prog[l.id])+'<button type="button" class="btn sm'+(mission?'':' alt')+'" data-open="'+l.id+'">'+(prog[l.id]!==undefined?'Refaire':(mission?'Lancer la mission':'Commencer'))+'</button></div></div>';
-      }).join('')+'</div>';
+
+  function renderPathPage(p){
+    var prog=load(), d=doneCount(p,prog), n=p.lessons.length, nx=nextOf(p,prog), idx=PATHS.indexOf(p), after=PATHS[idx+1], num=0;
+    pathPage.innerHTML='<section class="p-hero"><div class="wrap">'
+      +'<button type="button" class="back" data-home>'+icon('back')+'Tous les parcours</button>'
+      +'<div class="p-head"><span class="badge">'+icon(p.key)+'</span><div><span class="tag">Parcours '+(idx+1)+' · '+p.level+'</span><h1 style="margin-top:8px">'+esc(p.en)+'</h1><p>'+esc(p.fr)+'</p></div></div>'
+      +'<div class="p-meta">'+barHtml(d,n)+'<span>'+d+' / '+n+' étapes validées</span></div>'
+      +'</div></section>'
+      +'<main class="wrap"><div class="p-body"><ol class="steps">'+p.lessons.map(function(l){
+        var mission=l.kind==='mission', ok=passed(prog,l), isNext=nx&&nx.id===l.id;
+        if(!mission) num++;
+        var cls='step'+(mission?' mission':'')+(ok?' done':'')+(isNext?' next':'');
+        var dot=mission?icon('target'):(ok?icon('check'):num);
+        var btn=prog[l.id]!==undefined?'Refaire':(mission?'Lancer la mission':'Commencer');
+        return '<li class="'+cls+'"><span class="dot">'+dot+'</span><div class="sb"><span class="kind">'+(mission?'Mission finale':'Leçon '+num+' · '+kindLabel(l))+'</span>'
+          +'<b>'+esc(l.title)+(isNext&&!mission?'<span class="reco">Recommandé</span>':'')+'</b><span class="d">'+esc(mission?(l.brief.split('. ')[0]+'.'):l.desc)+'</span>'
+          +(prog[l.id]!==undefined?statusOf(prog[l.id]):'')+'</div>'
+          +'<button type="button" class="btn sm'+(isNext||mission?'':' alt')+'" data-open="'+l.id+'">'+btn+'</button></li>';
+      }).join('')+'</ol>'
+      +(after?'<div class="p-next"><span>Parcours suivant : <b>'+esc(after.en)+'</b> · '+esc(after.fr)+'</span><button type="button" class="btn sm alt" data-path="'+after.key+'">Voir'+icon('arrow')+'</button></div>':'')
+      +'</div></main>'
+      +'<footer><div class="wrap">Vos réponses et votre progression restent sur cet appareil.</div></footer>';
   }
-  pathsBox.addEventListener('click',function(e){
-    var b=e.target.closest('.path'); if(!b||b.disabled) return;
-    activePath=b.getAttribute('data-path'); renderPaths(); renderPath();
-    pathView.scrollIntoView({behavior:'smooth',block:'start'});
+
+  function route(){
+    var m=location.hash.match(/^#\/p\/([a-z]+)/), p=m&&pathByKey(m[1]);
+    homeView.hidden=!!p; pathPage.hidden=!p;
+    if(p) renderPathPage(p); else renderHome();
+  }
+  window.addEventListener('hashchange',function(){ if(location.hash==='#roadmap') return; route(); window.scrollTo(0,0); });
+  document.addEventListener('click',function(e){
+    if(!modal.hidden) return;
+    var b=e.target.closest('[data-path]'); if(b){ location.hash='#/p/'+b.getAttribute('data-path'); return; }
+    if(e.target.closest('[data-home]')){ location.hash=''; return; }
+    b=e.target.closest('[data-open]'); if(b&&LESSONS[b.getAttribute('data-open')]) openLesson(b.getAttribute('data-open'));
   });
-  pathPanel.addEventListener('click',function(e){var b=e.target.closest('[data-open]'); if(b) openLesson(b.getAttribute('data-open'));});
-  document.getElementById('xmods').addEventListener('click',function(e){var b=e.target.closest('[data-open]'); if(b&&LESSONS[b.getAttribute('data-open')]) openLesson(b.getAttribute('data-open'));});
 
   /* Sélecteur de langue d'appui */
   var seg=document.querySelector('.seg');
@@ -775,8 +926,8 @@ footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--ink3);fo
   function closeModal(){
     modal.hidden=true; document.documentElement.style.overflow='';
     try{window.speechSynthesis&&window.speechSynthesis.cancel();}catch(e){}
-    renderPath();
-    if(lastFocus&&lastFocus.focus) lastFocus.focus();
+    route();
+    if(lastFocus&&lastFocus.focus&&document.body.contains(lastFocus)) lastFocus.focus();
   }
   function head(){return '<h2 id="m-title">'+cur.emoji+' '+esc(cur.title)+'</h2>';}
   function coach(msg){return '<div class="fb" aria-live="polite"><i aria-hidden="true">EN</i><div id="fb">'+msg+'</div></div>';}
@@ -994,7 +1145,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--ink3);fo
   });
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden) closeModal();});
 
-  renderSeg(); renderPhonBtn(); renderPaths();
+  renderSeg(); renderPhonBtn(); route();
 })();
 </script>
 </body>
